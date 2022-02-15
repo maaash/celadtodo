@@ -9,4 +9,9 @@ export class AppComponent {
   title = 'celadtodo';
   public isConnected: boolean = true
 
+  constructor(){
+    setTimeout(() => {
+      this.isConnected=true
+    }, 3000);
+  }
 }
