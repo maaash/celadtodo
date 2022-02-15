@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Celad todo list formation';
 
   public isConnected: boolean = true
@@ -28,6 +28,27 @@ export class AppComponent {
     setTimeout(() => {
       this.isConnected=true
     }, 3000)
+  }
+
+  ngOnInit(): void {
+    let promesse: Promise<string> = new Promise(
+      (resolve, reject) => {
+          setTimeout( () => {
+            let tirage = Math.random()
+            if (tirage  >0.5){
+              resolve('OK: '+tirage)
+            }else {
+              reject('KO: '+tirage)
+            }
+          }, 2000)
+      }
+    )
+
+    promesse
+    //Si resolve
+      .then( str => console.log("reponse: ", str))
+    //Si reject
+      .catch( e => console.log("erreur: ", e))
   }
 
   onSauvegarde(): void {
