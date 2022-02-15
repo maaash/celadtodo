@@ -10,5 +10,9 @@
     <button class="btn btn-primary"
     [disabled]="!isConnected"
     (click)="onSauvegarde()"> Save </button>
+
+    <div class="date">
+      {{dateMaj | async | date: 'fullDate' | uppercase}}
+    </div>
   </div>
 </div>

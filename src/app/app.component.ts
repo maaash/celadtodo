@@ -34,4 +34,12 @@ export class AppComponent {
     console.log("Save en cours")
   }
 
+//public dateMaj: Date = new Date()
+  public dateMaj: Promise<Date> = new Promise(
+    (functionResolve, functionReject) => {
+      const date = new Date()
+      setTimeout( () => { functionResolve(date) }, 3000)
+    }
+  )
+
 }
