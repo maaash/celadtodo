@@ -17,6 +17,10 @@ export class TacheComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getNom(): string{
+    return this.nameEtat
+  }
+
   getEtat(): string{
     switch (this.etatTache){
       case "a faire": return "à faire"
