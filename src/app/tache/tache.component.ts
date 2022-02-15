@@ -27,8 +27,16 @@ export class TacheComponent implements OnInit {
     switch (this.etatTache){
       case "afaire": return "à faire"
       case "encours": return "en cours"
-      case "termine": return "terminée"
+      case "terminee": return "terminée"
       default : return "indeterminé"
+    }
+  }
+  getCouleurEtat(): string{
+    switch (this.etatTache){
+      case "afaire": return "darkred"
+      case "encours": return "darkblue"
+      case "terminee": return "darkyellow"
+      default : return "white"
     }
   }
 

@@ -1,5 +1,11 @@
-<li class="item-list">
-  <h4>tâche: {{nameTache}} --- état: {{getEtat()}}
+<li class="list-group-item"
+[ngClass]="{
+  'list-group-item-secondary': etatTache=='afaire',
+  'list-group-item-info': etatTache=='encours',
+  'list-group-item-success': etatTache=='terminee'
+}">
+  <h4 [ngStyle]='{color: getCouleurEtat()}'>
+    tâche: {{nameTache}} --- état: {{getEtat()}}
     <span *ngIf="etatTache=='afaire'" class="badge bg-success"> NEW </span>
   </h4>
   <input type="text" class="form-control" [(ngModel)]="nameTache">
