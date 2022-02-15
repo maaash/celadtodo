@@ -7,11 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'celadtodo';
+
   public isConnected: boolean = true
 
   constructor(){
     setTimeout(() => {
       this.isConnected=true
-    }, 3000);
+    }, 3000)
   }
+
+  onSauvegarde(): void {
+    console.log("Save en cours")
+  }
+
 }

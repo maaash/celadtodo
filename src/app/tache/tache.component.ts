@@ -10,6 +10,7 @@ export class TacheComponent implements OnInit {
   public nameEtat: string = "Recherche idée projet"
   public etatTache: string = "afaire"
 
+
   constructor() {
     console.log("New tache")
    }
