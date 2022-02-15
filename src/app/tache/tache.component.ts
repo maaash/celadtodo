@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tache',
@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class TacheComponent implements OnInit {
 
 
-  public nameTache: string = "Recherche idée projet"
-  public etatTache: string = "afaire"
+  @Input("nom") public nameTache: string = "Recherche idée projet"
+  @Input("etat") public etatTache: string = "afaire"
 
 
   constructor() {

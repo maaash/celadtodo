@@ -2,9 +2,9 @@
 <div class="container">
   <div class="row">
     <ul class="list-group">
-      <app-tache></app-tache>
-      <app-tache></app-tache>
-      <app-tache></app-tache>
+      <app-tache [nom]="tache1" [etat]="'terminée'"></app-tache>
+      <app-tache [nom]="tache2" [etat]="'terminée'"></app-tache>
+      <app-tache [nom]="tache3" [etat]="'terminée'"></app-tache>
     </ul>
 
     <button class="btn btn-primary" [disabled]="!isConnected" (click)="onSauvegarde()"> Save </button>

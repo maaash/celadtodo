@@ -6,9 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'celadtodo';
+  title = 'Celad todo list formation';
 
   public isConnected: boolean = true
+
+  public tache1 = "Recherche d'idée"
+  public tache2 = "etude de marche"
+  public tache3 = "realisation"
+
 
   constructor(){
     setTimeout(() => {
