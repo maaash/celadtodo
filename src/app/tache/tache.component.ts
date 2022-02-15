@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TacheComponent implements OnInit {
 
-  public nameEtat: string = "Recherche idée projet"
+
+  public nameTache: string = "Recherche idée projet"
   public etatTache: string = "afaire"
 
 
@@ -19,12 +20,12 @@ export class TacheComponent implements OnInit {
   }
 
   getNom(): string{
-    return this.nameEtat
+    return this.nameTache
   }
 
   getEtat(): string{
     switch (this.etatTache){
-      case "a faire": return "à faire"
+      case "afaire": return "à faire"
       case "encours": return "en cours"
       case "termine": return "terminée"
       default : return "indeterminé"
