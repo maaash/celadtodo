@@ -13,7 +13,16 @@ export class AppComponent {
   public tache1 = "Recherche d'idée"
   public tache2 = "etude de marche"
   public tache3 = "realisation"
-
+  public taches = [
+    {nom: "Recherche idee projet",
+    etat: "terminee"} ,
+    {nom: "etude de marche",
+    etat: "encours"} ,
+    {nom: "business plan",
+    etat: "afaire"} ,
+    {nom: "realisation",
+    etat: "afaire"}
+  ]
 
   constructor(){
     setTimeout(() => {

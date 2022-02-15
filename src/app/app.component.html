@@ -1,12 +1,14 @@
 <h1>{{title}}</h1>
 <div class="container">
   <div class="row">
-    <ul class="list-group">
-      <app-tache [nom]="tache1" [etat]="'terminée'"></app-tache>
-      <app-tache [nom]="tache2" [etat]="'terminée'"></app-tache>
-      <app-tache [nom]="tache3" [etat]="'terminée'"></app-tache>
+    <ul class="list-group" >
+      <app-tache *ngFor="let tache of taches; let i = index"
+      [nom]="tache.nom"
+      [etat]="tache.etat"></app-tache>
     </ul>
 
-    <button class="btn btn-primary" [disabled]="!isConnected" (click)="onSauvegarde()"> Save </button>
+    <button class="btn btn-primary"
+    [disabled]="!isConnected"
+    (click)="onSauvegarde()"> Save </button>
   </div>
 </div>

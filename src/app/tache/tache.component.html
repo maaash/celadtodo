@@ -1,4 +1,6 @@
 <li class="item-list">
-  <h4>tâche: {{nameTache}} --- état: {{getEtat()}} </h4>
+  <h4>tâche: {{nameTache}} --- état: {{getEtat()}}
+    <span *ngIf="etatTache=='afaire'" class="badge bg-success"> NEW </span>
+  </h4>
   <input type="text" class="form-control" [(ngModel)]="nameTache">
 </li>
