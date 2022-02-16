@@ -1,0 +1,11 @@
+<div class="container">
+ <h1>Page d'identification</h1>
+
+  <button class="btn btn-primary"
+  *ngIf="!stateConnected"
+  (click)="onConnexion()">Connexion</button>
+
+  <button class="btn btn-danger"
+  *ngIf="stateConnected"
+  (click)="onDeconnexion()">Déconnexion</button>
+</div>
