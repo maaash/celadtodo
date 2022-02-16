@@ -6,11 +6,15 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TacheComponent } from './tache/tache.component';
+import { TacheListComponent } from './tache-list/tache-list.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TacheComponent
+    TacheComponent,
+    TacheListComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,

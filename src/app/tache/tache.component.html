@@ -7,6 +7,7 @@
   <h4 [ngStyle]='{color: getCouleurEtat()}'>
     tâche: {{nameTache}} --- état: {{getEtat()}}
     <span *ngIf="etatTache==etat.AFAIRE" class="badge bg-success"> NEW </span>
+    <span *ngIf="etatTache==etat.TERMINEE" class="badge bg-danger"> TERMINEE </span>
   </h4>
 
   <div class="d-flex flex_row">

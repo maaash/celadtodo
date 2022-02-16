@@ -1,0 +1,25 @@
+<h1>{{title}}</h1>
+<div class="container">
+  <div class="row">
+    <ul class="list-group" >
+      <app-tache *ngFor="let tache of taches"
+      [id]="tache.id"
+      [nom]="tache.nom"
+      [etat]="tache.etat"></app-tache>
+    </ul>
+
+    <button class="btn btn-primary"
+    [disabled]="!isConnected"
+    (click)="onSauvegarde()"> Save </button>
+
+    <button class="btn btn-danger"
+    (click)="todoAll()"> Tout annuler </button>
+    <button class="btn btn-success"
+    (click)="allTermine()"> Tout terminer </button>
+
+    <div class="date">
+      {{dateMaj | async | date: 'fullDate' | uppercase}}
+    </div>
+  </div>
+</div>
+
