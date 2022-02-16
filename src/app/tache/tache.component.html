@@ -12,6 +12,8 @@
 
   <div class="d-flex flex_row">
     <input type="text" class="form-control" [(ngModel)]="nameTache">
+
+    <button class="btn btn-primary" (click)="onVoirDetail()">détail</button>
     <button class="btn btn-danger" (click)="onRegresser()" [disabled]="etatTache==etat.AFAIRE">&lt;</button>
     <button class="btn btn-success" (click)="onProgresser()"[disabled]="etatTache==etat.TERMINEE">&gt;</button>
   </div>

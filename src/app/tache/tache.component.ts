@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Etat, Tache, tacheDefaut } from '../models/tache';
 import { TacheService } from '../services/tache.service';
 
@@ -16,7 +17,8 @@ export class TacheComponent implements OnInit {
   @Input('id') public idTache: number = tacheDefaut.id
 
 
-  constructor( private tacheService: TacheService ) {
+  constructor( private tacheService: TacheService,
+    private router: Router ) {
 
    }
 
@@ -49,6 +51,11 @@ export class TacheComponent implements OnInit {
 
   onRegresser(): void {
     this.tacheService.regresserTache(this.idTache)
+  }
+
+  onVoirDetail(): void{
+    console.log("detail",this.idTache)
+    this.router.navigate(['tache', this.idTache])
   }
 
 }
