@@ -1,17 +1,17 @@
 <li class="list-group-item"
 [ngClass]="{
-  'list-group-item-secondary': etatTache=='afaire',
-  'list-group-item-info': etatTache=='encours',
-  'list-group-item-success': etatTache=='terminee'
+  'list-group-item-secondary': etatTache==etat.AFAIRE,
+  'list-group-item-info': etatTache==etat.ENCOURS,
+  'list-group-item-success': etatTache==etat.TERMINEE
 }">
   <h4 [ngStyle]='{color: getCouleurEtat()}'>
     tâche: {{nameTache}} --- état: {{getEtat()}}
-    <span *ngIf="etatTache=='afaire'" class="badge bg-success"> NEW </span>
+    <span *ngIf="etatTache==etat.AFAIRE" class="badge bg-success"> NEW </span>
   </h4>
 
   <div class="d-flex flex_row">
     <input type="text" class="form-control" [(ngModel)]="nameTache">
-    <button class="btn btn-danger" (click)="onRegresser()" [disabled]="etatTache=='afaire'">&lt;</button>
-    <button class="btn btn-success" (click)="onProgresser()"[disabled]="etatTache=='terminee'">&gt;</button>
+    <button class="btn btn-danger" (click)="onRegresser()" [disabled]="etatTache==etat.AFAIRE">&lt;</button>
+    <button class="btn btn-success" (click)="onProgresser()"[disabled]="etatTache==etat.TERMINEE">&gt;</button>
   </div>
 </li>

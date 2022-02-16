@@ -1,42 +1,58 @@
 import { Injectable } from '@angular/core';
+import { Etat, Tache, tacheDefaut } from '../models/tache';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TacheService {
 
-  public taches: any[] = [
-    {nom: "Recherche idee projet",
-    etat: "terminee"} ,
-    {nom: "etude de marche",
-    etat: "encours"} ,
-    {nom: "business plan",
-    etat: "afaire"} ,
-    {nom: "realisation",
-    etat: "afaire"}
+  public taches: Tache[] = [
+    {id: 1,
+    nom: "Recherche idee projet",
+    etat: Etat.TERMINEE} ,
+    {id:2,
+    nom: "etude de marche",
+    etat: Etat.ENCOURS} ,
+    {id: 3,
+    nom: "business plan",
+    etat: Etat.AFAIRE} ,
+    {id: 4,
+    nom: "realisation",
+    etat: Etat.AFAIRE}
   ]
 
   constructor() {}
 
-  terminerTaches(): void{
-    this.taches.forEach( tache => tache.etat = 'terminee')
-  }
-
-  annulerTaches(): void{
-    this.taches.forEach( tache => tache.etat = 'afaire')
-  }
-
-  progresserTache(id: number){
-    switch(this.taches[id].etat){
-      case 'afaire': this.taches[id].etat = 'encours';break
-      case 'encours': this.taches[id].etat = 'terminee'; break
+  getTacheById(id: number): Tache {
+    const tache = this.taches.find( tache => tache.id===id)
+    if (tache!== undefined){
+      return tache
+    }else {
+      return tacheDefaut
     }
   }
 
-  regresserTache(id: number){
-    switch(this.taches[id].etat){
-      case 'encours': this.taches[id].etat = 'afaire';break
-      case 'terminee': this.taches[id].etat = 'encours'; break
+  terminerTaches(): void{
+    this.taches.forEach( tache => tache.etat = Etat.TERMINEE)
+  }
+
+  annulerTaches(): void{
+    this.taches.forEach( tache => tache.etat = Etat.AFAIRE)
+  }
+
+  progresserTache(id: number): void{
+    const tache = this.getTacheById(id)
+    switch(tache.etat){
+      case Etat.AFAIRE: tache.etat = Etat.ENCOURS;break
+      case Etat.ENCOURS: tache.etat = Etat.TERMINEE; break
+    }
+  }
+
+  regresserTache(id: number): void{
+    const tache = this.getTacheById(id)
+    switch(tache.etat){
+      case Etat.ENCOURS: tache.etat = Etat.AFAIRE;break
+      case Etat.TERMINEE: tache.etat = Etat.ENCOURS; break
     }
   }
 }

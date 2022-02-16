@@ -2,8 +2,8 @@
 <div class="container">
   <div class="row">
     <ul class="list-group" >
-      <app-tache *ngFor="let tache of taches; let id = index"
-      [index]="id"
+      <app-tache *ngFor="let tache of taches"
+      [id]="tache.id"
       [nom]="tache.nom"
       [etat]="tache.etat"></app-tache>
     </ul>

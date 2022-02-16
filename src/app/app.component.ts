@@ -60,6 +60,7 @@ export class AppComponent implements OnInit {
 
   onSauvegarde(): void {
     console.log("Save en cours")
+    console.log(this.taches)
   }
 
   allTermine(): void{

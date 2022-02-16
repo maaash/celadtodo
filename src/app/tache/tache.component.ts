@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Etat, Tache, tacheDefaut } from '../models/tache';
 import { TacheService } from '../services/tache.service';
 
 @Component({
@@ -8,10 +9,11 @@ import { TacheService } from '../services/tache.service';
 })
 export class TacheComponent implements OnInit {
 
+  public etat = Etat
 
-  @Input("nom") public nameTache: string = "Recherche idée projet"
-  @Input("etat") public etatTache: string = "afaire"
-  @Input('index') public idTache: number = 0
+  @Input("nom") public nameTache: string = tacheDefaut.nom
+  @Input("etat") public etatTache: Etat = tacheDefaut.etat
+  @Input('id') public idTache: number = tacheDefaut.id
 
 
   constructor( private tacheService: TacheService ) {
@@ -26,18 +28,15 @@ export class TacheComponent implements OnInit {
   }
 
   getEtat(): string{
-    switch (this.etatTache){
-      case "afaire": return "à faire"
-      case "encours": return "en cours"
-      case "terminee": return "terminée"
-      default : return "indeterminé"
-    }
+    return this.etatTache
   }
+
+
   getCouleurEtat(): string{
     switch (this.etatTache){
-      case "afaire": return "orange"
-      case "encours": return "darkblue"
-      case "terminee": return "darkgreen"
+      case Etat.AFAIRE: return "orange"
+      case Etat.ENCOURS: return "darkblue"
+      case Etat.TERMINEE: return "darkgreen"
       default : return "white"
     }
   }
