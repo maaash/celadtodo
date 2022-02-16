@@ -1,11 +1,20 @@
 <div class="container">
  <h1>Page d'identification</h1>
+<ng-container *ngIf="stateConnected; then connexionOK  else connexionKO"></ng-container>
 
+<ng-template #connexionKO>
+  <p>veuillez vous connecter</p>
   <button class="btn btn-primary"
   *ngIf="!stateConnected"
   (click)="onConnexion()">Connexion</button>
+</ng-template>
 
+
+<ng-template #connexionOK>
+  <p>vous êtes connecté</p>
   <button class="btn btn-danger"
   *ngIf="stateConnected"
   (click)="onDeconnexion()">Déconnexion</button>
+</ng-template>
+
 </div>

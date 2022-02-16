@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { interval, Observable, of, Subscription } from 'rxjs';
 import { TacheService } from '../services/tache.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { TacheService } from '../services/tache.service';
   styles: [
   ]
 })
-export class TacheListComponent implements OnInit {
+export class TacheListComponent implements OnInit, OnDestroy {
 
   title = 'Celad todo list formation';
 
@@ -29,12 +30,29 @@ export class TacheListComponent implements OnInit {
   ]
   */
   public taches: any[] = []
+  private sub?: Subscription
 
   constructor(private tacheService: TacheService){ }
 
+  ngOnDestroy(): void{
+    console.log("destroying var compteur")
+    if (this.sub) {
+      this.sub.unsubscribe()
+    }
+  }
   ngOnInit(): void {
 
     this.taches = this.tacheService.taches
+
+  //ex observable
+    //const compteur: Observable<number> = of(10,12,44,50)
+    const compteur: Observable<number> = interval(1000)
+    compteur.subscribe(num => console.log("listener 1: ", num))
+    this.sub = compteur.subscribe( {
+      next: num => console.log("listener 2: ", num),
+      error: err => console.log("error: ", err),
+      complete: () => console.log("listener 2 stopped")
+    })
 
     setTimeout(() => {
       this.isConnected=true

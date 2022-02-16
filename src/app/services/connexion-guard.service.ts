@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ConnexionService } from './connexion.service';
 
 @Injectable({
@@ -12,7 +13,7 @@ export class ConnexionGuardService implements CanActivate {
 
    }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree  {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree |Observable<boolean> {
     if (this.connexionService.isConnected) {
       return true
     } else {
