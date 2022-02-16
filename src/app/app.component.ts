@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TacheService } from './services/tache.service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ export class AppComponent implements OnInit {
   public tache1 = "Recherche d'idée"
   public tache2 = "etude de marche"
   public tache3 = "realisation"
+  /*
   public taches = [
     {nom: "Recherche idee projet",
     etat: "terminee"} ,
@@ -23,14 +25,19 @@ export class AppComponent implements OnInit {
     {nom: "realisation",
     etat: "afaire"}
   ]
+  */
+  public taches: any[] = []
 
-  constructor(){
+  constructor(private tacheService: TacheService){ }
+
+  ngOnInit(): void {
+
+    this.taches = this.tacheService.taches
+
     setTimeout(() => {
       this.isConnected=true
     }, 3000)
-  }
 
-  ngOnInit(): void {
     let promesse: Promise<string> = new Promise(
       (resolve, reject) => {
           setTimeout( () => {
@@ -54,6 +61,16 @@ export class AppComponent implements OnInit {
   onSauvegarde(): void {
     console.log("Save en cours")
   }
+
+  allTermine(): void{
+    this.tacheService.terminerTaches()
+  }
+
+  todoAll(): void{
+    this.tacheService.annulerTaches()
+  }
+
+
 
 //public dateMaj: Date = new Date()
   public dateMaj: Promise<Date> = new Promise(

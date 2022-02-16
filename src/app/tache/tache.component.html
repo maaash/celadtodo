@@ -9,4 +9,6 @@
     <span *ngIf="etatTache=='afaire'" class="badge bg-success"> NEW </span>
   </h4>
   <input type="text" class="form-control" [(ngModel)]="nameTache">
+  <button class="btn btn-danger" (click)="onRegresser()" [disabled]="etatTache=='afaire'">&lt;</button>
+  <button class="btn btn-success" (click)="onProgresser()"[disabled]="etatTache=='terminee'">&gt;</button>
 </li>

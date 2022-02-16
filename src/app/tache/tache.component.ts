@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TacheService } from '../services/tache.service';
 
 @Component({
   selector: 'app-tache',
@@ -10,10 +11,11 @@ export class TacheComponent implements OnInit {
 
   @Input("nom") public nameTache: string = "Recherche idée projet"
   @Input("etat") public etatTache: string = "afaire"
+  @Input('index') public idTache: number = 0
 
 
-  constructor() {
-    console.log("New tache")
+  constructor( private tacheService: TacheService ) {
+
    }
 
   ngOnInit(): void {
@@ -38,6 +40,16 @@ export class TacheComponent implements OnInit {
       case "terminee": return "darkgreen"
       default : return "white"
     }
+  }
+
+
+
+  onProgresser(): void {
+    this.tacheService.progresserTache(this.idTache)
+  }
+
+  onRegresser(): void {
+    this.tacheService.regresserTache(this.idTache)
   }
 
 }

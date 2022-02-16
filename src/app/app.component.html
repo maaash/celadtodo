@@ -2,7 +2,8 @@
 <div class="container">
   <div class="row">
     <ul class="list-group" >
-      <app-tache *ngFor="let tache of taches; let i = index"
+      <app-tache *ngFor="let tache of taches; let id = index"
+      [index]="id"
       [nom]="tache.nom"
       [etat]="tache.etat"></app-tache>
     </ul>
@@ -10,6 +11,11 @@
     <button class="btn btn-primary"
     [disabled]="!isConnected"
     (click)="onSauvegarde()"> Save </button>
+
+    <button class="btn btn-danger"
+    (click)="todoAll()"> Tout annuler </button>
+    <button class="btn btn-success"
+    (click)="allTermine()"> Tout terminer </button>
 
     <div class="date">
       {{dateMaj | async | date: 'fullDate' | uppercase}}
