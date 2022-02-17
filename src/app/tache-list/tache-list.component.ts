@@ -30,7 +30,9 @@ export class TacheListComponent implements OnInit, OnDestroy {
   ]
   */
   public taches: any[] = []
+  public secondes: number = 0
   private sub?: Subscription
+
 
   constructor(private tacheService: TacheService){ }
 
@@ -49,7 +51,8 @@ export class TacheListComponent implements OnInit, OnDestroy {
     const compteur: Observable<number> = interval(1000)
     compteur.subscribe(num => console.log("listener 1: ", num))
     this.sub = compteur.subscribe( {
-      next: num => console.log("listener 2: ", num),
+      next: num => {console.log("listener 2: ", num)
+      this.secondes = num},
       error: err => console.log("error: ", err),
       complete: () => console.log("listener 2 stopped")
     })

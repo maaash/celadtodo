@@ -11,6 +11,7 @@
     <button class="btn btn-primary"
     [disabled]="!isConnected"
     (click)="onSauvegarde()"> Save </button>
+    <span class="btn btn-primary">{{secondes}}</span>
 
     <button class="btn btn-danger"
     (click)="todoAll()"> Tout annuler </button>
