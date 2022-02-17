@@ -1,0 +1,33 @@
+<h2>Ajout nouvel utilisateur</h2>
+
+<div class="col-6 col-offset-3">
+  <form [formGroup]="uForm" (ngSubmit)="onEnregistrerUser()">
+    <div class="form-group" >
+      <label for="nom">Nom: </label>
+      <input id="nom" type="text" class="form-control" formControlName="nom">
+    </div>
+    <div class="form-group">
+      <label for="email">Adresse email: </label>
+      <input id="email" type="text" class="form-control" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="Metier">Métier: </label>
+      <select id="metier" class="form-control form-select-sm" formControlName="metier">
+        <option value='formateur'>Formateur</option>
+        <option value='dev'>Développeur</option>
+        <option value='crs'>CRS</option>
+      </select>
+    </div>
+<div class="form-group" formArrayName="tech">
+  <h4> Technos:
+    <button type="button" class="btn btn-info" (click)="onAjoutTechno()"> + </button>
+  </h4>
+  <div class="d-flex flex-row" *ngFor="let tech of getTechno().controls; let i = index">
+    <input type="text" class="form-control" [formControlName]="i">
+    <button type=button class="btn btn-danger" (click)="onSuppressionTechno(i)"> - </button>
+  </div>
+</div>
+
+    <button type="submit" class="btn btn-success" [disabled]="uForm.invalid" >Enregistrer</button>
+  </form>
+</div>

@@ -1,0 +1,10 @@
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let user of utilisateurs">
+    <h4>{{user.nom}}</h4>
+    <p>{{user.email}}</p>
+    <p>{{user.metier}}</p>
+    <p *ngIf="user.tech && user.tech.length>0">Technologies connues<i> <span class='badge bg-secondary m-2 p-2' *ngFor="let t of user.tech">{{t}}</span></i></p>
+  </li>
+</ul>
+
+<a routerLink="/utilisateur/new" class="btn btn-primary">Ajouter utilisateur</a>
