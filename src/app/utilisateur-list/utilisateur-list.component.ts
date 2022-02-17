@@ -19,4 +19,12 @@ export class UtilisateurListComponent implements OnInit {
     this.utilisateurs = this.us.getUsers()
   }
 
+  onSauvegarde(): void{
+    this.us.sauvegardeServeur()
+  }
+
+  onRestauration(): void{
+    this.us.restaurationServeur()
+  }
+
 }
