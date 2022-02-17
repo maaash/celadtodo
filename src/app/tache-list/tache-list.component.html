@@ -1,4 +1,5 @@
 <h1>{{title}}</h1>
+<span class="btn btn-primary">{{secondes}}</span>
 <div class="container">
   <div class="row">
     <ul class="list-group" >
@@ -11,7 +12,6 @@
     <button class="btn btn-primary"
     [disabled]="!isConnected"
     (click)="onSauvegarde()"> Save </button>
-    <span class="btn btn-primary">{{secondes}}</span>
 
     <button class="btn btn-danger"
     (click)="todoAll()"> Tout annuler </button>

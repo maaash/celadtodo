@@ -49,9 +49,9 @@ export class TacheListComponent implements OnInit, OnDestroy {
   //ex observable
     //const compteur: Observable<number> = of(10,12,44,50)
     const compteur: Observable<number> = interval(1000)
-    compteur.subscribe(num => console.log("listener 1: ", num))
+    //compteur.subscribe(num => console.log("listener 1: ", num))
     this.sub = compteur.subscribe( {
-      next: num => {console.log("listener 2: ", num)
+      next: num => {//console.log("listener 2: ", num)
       this.secondes = num},
       error: err => console.log("error: ", err),
       complete: () => console.log("listener 2 stopped")

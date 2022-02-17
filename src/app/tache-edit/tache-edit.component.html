@@ -1,0 +1,15 @@
+<div class="col-sm-6 col-sm-offset-3">
+  <form #formulaire="ngForm" (ngSubmit)="onSubmit(formulaire)">
+    <div class="form-group">
+      <label for="nom">Nom de la tâche: </label>
+      <input type="text" class="form-control" id="nom" name="nom" required ngModel>
+    </div>
+    <div class="form-group">
+      <label for="etat">Etat d'avancement: </label>
+      <select type="text" class="form-control" id="etat" name="etat" required ngModel>
+        <option *ngFor="let e of etat | keyvalue" value = "{{e.value}}">{{e.value}}</option>
+      </select>
+    </div>
+    <button class="btn btn-success" type="submit"> Enregistrer</button>
+  </form>
+</div>

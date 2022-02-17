@@ -11,6 +11,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { Erreur404Component } from './erreur404/erreur404.component';
 import { TacheViewComponent } from './tache-view/tache-view.component';
+import { TacheEditComponent } from './tache-edit/tache-edit.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TacheViewComponent } from './tache-view/tache-view.component';
     AccueilComponent,
     ConnexionComponent,
     Erreur404Component,
-    TacheViewComponent
+    TacheViewComponent,
+    TacheEditComponent
   ],
   imports: [
     BrowserModule,

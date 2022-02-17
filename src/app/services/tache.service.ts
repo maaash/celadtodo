@@ -55,4 +55,15 @@ export class TacheService {
       case Etat.TERMINEE: tache.etat = Etat.ENCOURS; break
     }
   }
+
+  createTache(newNom: string, newEtat: Etat): Tache{
+    const newId = this.taches[this.taches.length-1].id + 1
+    const tache: Tache = {
+      id: newId,
+      nom: newNom,
+      etat: newEtat
+    }
+    this.taches.push(tache)
+    return tache
+  }
 }
